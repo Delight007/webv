@@ -10,30 +10,43 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export default function ImageSwiper() {
   const slides = [
     {
-      img: "https://picsum.photos/id/1015/1200/600",
-      title: "WAN 2.2 Image generation",
-      subtitle:
-        "Generate complex images with the brand new and powerful WAN 2.2 model.",
+      img: "/images/tri.jpg",
+      title: "WAN 2.2",
+      subtitle: "WAN 2.2 Image generation",
+      description:
+        "Generate complex images with the brand new and powerful WAN 2.2 model. Exceptional prompt adherence and utral realistic texture.",
       badge: "Try WAN 2.2",
     },
     {
-      img: "https://picsum.photos/id/1016/1200/600",
-      title: "FLUX.1 Krea",
-      subtitle:
-        "Manipulate weights for our FLUX.1 Krea model open-source release.",
-      badge: "Try WAN 2.2",
-    },
-
-    {
-      img: "https://picsum.photos/id/1018/1200/600",
-      title: "Creative AI",
-      subtitle: "Enhance, edit, and generate stunning results.",
+      img: "/images/tri2.jpg",
+      title: "Open Source",
+      subtitle: "FLux.1 Krea",
+      description:
+        "We're making the weights to our FLUX.1 Krea model open source, Download and run our model weights, read the technical report",
       badge: "Try WAN 2.2",
     },
     {
-      img: "https://picsum.photos/id/1020/1200/600",
-      title: "Future Vision",
-      subtitle: "Building AI-driven creativity for tomorrow.",
+      img: "/images/tri3.jpg",
+      title: "Speeding",
+      subtitle: "Flash Speed",
+      description:
+        "Elite sprinters can reach speeds of 36–45 km/h in short bursts, while average jogging speeds for most people range from 8–12 km/h. Training methods like interval running, strength conditioning, and proper recovery.",
+      badge: "Try WAN 2.2",
+    },
+    {
+      img: "/images/tri4.jpg",
+      title: "Smart Watch",
+      subtitle: "Krea Smart Watch",
+      description:
+        "smartwatches are fitness-focused (like Garmin or Fitbit), while others are all-purpose (like Apple Watch, Samsung Galaxy Watch, or Google Pixel Watch).",
+      badge: "Try WAN 2.2",
+    },
+    {
+      img: "/images/tri5.jpg",
+      title: "Shark",
+      subtitle: "Shark",
+      description:
+        "Some sharks are fast swimmers, like the shortfin mako, which can reach speeds over 70 km/h, making it one of the fastest fish in the ocean.",
       badge: "Try WAN 2.2",
     },
   ];
@@ -66,12 +79,14 @@ export default function ImageSwiper() {
               className="relative w-full h-full bg-cover bg-center rounded-2xl "
               style={{ backgroundImage: `url(${slide.img})` }}
             >
-              <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
-              <div className="absolute bottom-14 left-6 text-white max-w-xs">
-                <h2 className="text-xl font-bold">{slide.title}</h2>
-                <p className="mt-2 text-sm">{slide.subtitle}</p>
+              <div className="absolute text-white text-7xl font-bold bottom-1/2 left-1/4">
+                {slide.title}
               </div>
-              <button className="bg-white rounded-2xl text-white">
+              <div className="absolute bottom-7 left-6 text-white  w-full">
+                <h2 className="text-xl font-bold">{slide.subtitle}</h2>
+                <p className="text-sm w-[330px]">{slide.description}</p>
+              </div>
+              <button className="bg-white rounded-4xl text-black text-xs font-medium py-3 px-4 h-[40px] flex justify-center items-center absolute bottom-7 right-6">
                 {slide.badge}
               </button>
             </div>
@@ -81,7 +96,7 @@ export default function ImageSwiper() {
 
       {/* Navigation & Pagination */}
       <div className="relative w-full flex items-center justify-between mt-8">
-        <div className="swiper-pagination flex justify-center w-full gap-1"></div>
+        <div className="swiper-pagination flex justify-center w-full gap-2.5"></div>
         <div className="flex gap-3 absolute right-20 -bottom-2.5">
           <button className="swiper-button-next">
             <MdKeyboardArrowLeft />
@@ -125,7 +140,29 @@ export default function ImageSwiper() {
           color: #000 !important;
         }
 
-        /* Black pagination dots */
+        /* Dark mode pagination dots */
+        @media (prefers-color-scheme: dark) {
+          .swiper-pagination-bullet {
+            background: #999 !important;
+            opacity: 0.7;
+          }
+          .swiper-pagination-bullet-active {
+            background: #fff !important;
+            opacity: 1;
+          }
+        }
+
+        /* Dark mode class-based styling */
+        .dark .swiper-pagination-bullet {
+          background: #999 !important;
+          opacity: 0.7;
+        }
+        .dark .swiper-pagination-bullet-active {
+          background: #fff !important;
+          opacity: 1;
+        }
+
+        /* Light mode pagination dots (default) - must come after dark mode */
         .swiper-pagination-bullet {
           background: #777 !important;
           opacity: 0.7;
